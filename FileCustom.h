@@ -10,13 +10,11 @@ public:
 	explicit FileCustom() {}
 	~FileCustom() {}
 
-	void Copy(char& from, char& to);
+	void Copy(const char& from, const char& to);
 
 private:
-
-	HANDLE m_hFile = NULL;
-	DWORD m_lpBuffer = NULL; // буфер данных
-	int m_nNumberOfBytesToRead = 4; // число байтов для чтения
-	DWORD m_lpNumberOfBytesRead = NULL; // число прочитанных байтов
+	DWORD m_lpBuffer = NULL;
+	int m_nNumberOfBytesToRead = 4;
+	DWORD m_lpNumberOfBytesRead = NULL;
 };
 

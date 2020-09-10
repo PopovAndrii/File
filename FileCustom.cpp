@@ -1,6 +1,6 @@
 #include "FileCustom.h"
 
-void FileCustom::Copy(char& from, char& to) {
+void FileCustom::Copy(const char& from, const char& to) {
 
 	HANDLE hR = CreateFileA(
 		&from,
@@ -37,8 +37,10 @@ void FileCustom::Copy(char& from, char& to) {
 			&m_lpNumberOfBytesRead,
 			NULL
 		)) {
-			// if empty file (copy empty file)
-			if (m_lpNumberOfBytesRead == 0) break;
+			
+			if (m_lpNumberOfBytesRead == 0) {
+				break; // ..empty file 
+			}
 			
 			if (WriteFile(
 				hW,
@@ -57,10 +59,6 @@ void FileCustom::Copy(char& from, char& to) {
 		else {
 			//..can't read
 		}
-
-
-
-
 	}
 
 	CloseHandle(hR);
