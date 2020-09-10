@@ -14,13 +14,9 @@ public:
 
 private:
 
-	HANDLE SetHandle(char& path);
-	bool Read(HANDLE hR);
-	bool Write(HANDLE hW);
-
 	HANDLE m_hFile = NULL;
-	DWORD m_lpBuffer = NULL;
-	int m_lpBufferSize = 4;
-	DWORD m_lpNumberOfBytesRead = NULL;
+	DWORD m_lpBuffer = NULL; // буфер данных
+	int m_nNumberOfBytesToRead = 4; // число байтов для чтения
+	DWORD m_lpNumberOfBytesRead = NULL; // число прочитанных байтов
 };
 
